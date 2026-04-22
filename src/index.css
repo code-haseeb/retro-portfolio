@@ -118,42 +118,55 @@ body::before {
   z-index: 90;
   will-change: transform;
   transition: opacity 140ms linear;
-  filter: drop-shadow(0 0 6px color-mix(in oklab, #facc15 70%, transparent));
+  filter: drop-shadow(0 0 6px color-mix(in oklab, #3b82f6 70%, transparent));
 }
 
 .pacman-cursor-follower.is-visible {
   opacity: 0.98;
 }
 
+/* Slime body */
 .pacman-cursor-follower::before {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 999px;
-  animation: pacmanChomp 190ms steps(1, end) infinite;
+  border-radius: 999px 999px 8px 8px;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(255, 255, 255, 0.22), transparent 35%),
+    radial-gradient(circle at 70% 60%, rgba(0, 0, 0, 0.12), transparent 40%),
+    #3b82f6;
 }
 
+/* Slime bottom curve */
 .pacman-cursor-follower::after {
   content: '';
   position: absolute;
-  top: 7px;
-  right: 8px;
+  left: 4px;
+  bottom: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #3b82f6;
+  box-shadow: 6px 0 0 #3b82f6, 12px 0 0 #3b82f6, 18px 0 0 #3b82f6;
+  transform-origin: center top;
+  animation: slimeDrip 620ms ease-in-out infinite;
+}
+
+.pacman-cursor-follower[data-moving='false']::after {
+  animation: none;
+}
+
+/* Eye */
+.pacman-cursor-follower > span {
+  position: absolute;
+  top: 9px;
+  left: 9px;
   width: 4px;
   height: 4px;
   border-radius: 999px;
-  background: #171717;
+  background: #0f0f0f;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
-
-@keyframes pacmanChomp {
-  0%,
-  100% {
-    background: conic-gradient(from -22deg, #facc15 0 322deg, transparent 322deg 360deg);
-  }
-  50% {
-    background: conic-gradient(from -10deg, #facc15 0 346deg, transparent 346deg 360deg);
-  }
-}
-
 @keyframes crtFade {
   from {
     opacity: 0;
@@ -162,6 +175,16 @@ body::before {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes slimeDrip {
+  0%,
+  100% {
+    transform: translateX(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(1px) scaleY(1.2);
   }
 }
 
