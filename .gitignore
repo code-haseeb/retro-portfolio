@@ -11,6 +11,26 @@ node_modules
 dist
 dist-ssr
 *.local
+coverage
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+.npmrc
+
+# Deployment/tooling local state
+.vercel
+
+# Private keys and cert material
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.csr
+id_rsa
+id_ed25519
 
 # Editor directories and files
 .vscode/*
