@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { PacmanCursorFollower } from './components/chrome/PacmanCursorFollower.tsx'
 import { SeoManager } from './components/seo/SeoManager.tsx'
 import { ContactPage } from './pages/ContactPage.tsx'
 import { ExperiencePage } from './pages/ExperiencePage.tsx'
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <SeoManager />
+      <PacmanCursorFollower />
       <Routes>
         <Route path="/" element={<IntroPage />} />
         <Route path="/menu" element={<MenuPage />} />

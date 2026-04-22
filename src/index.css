@@ -107,6 +107,53 @@ body::before {
   animation: crtFade 450ms ease-in-out;
 }
 
+.pacman-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 90;
+  will-change: transform;
+  transition: opacity 140ms linear;
+  filter: drop-shadow(0 0 6px color-mix(in oklab, #facc15 70%, transparent));
+}
+
+.pacman-cursor-follower.is-visible {
+  opacity: 0.98;
+}
+
+.pacman-cursor-follower::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  animation: pacmanChomp 190ms steps(1, end) infinite;
+}
+
+.pacman-cursor-follower::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #171717;
+}
+
+@keyframes pacmanChomp {
+  0%,
+  100% {
+    background: conic-gradient(from -22deg, #facc15 0 322deg, transparent 322deg 360deg);
+  }
+  50% {
+    background: conic-gradient(from -10deg, #facc15 0 346deg, transparent 346deg 360deg);
+  }
+}
+
 @keyframes crtFade {
   from {
     opacity: 0;
