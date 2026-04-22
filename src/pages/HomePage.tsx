@@ -20,15 +20,14 @@ export function HomePage() {
               </div>
             </div>
           </div>
-          <div>
-            <p className="mono-inline text-[0.75rem] text-[var(--accent-500)] md:text-[0.82rem]">Muhammad Haseeb</p>
-            <h2 className="pixel-title mt-5 text-base leading-relaxed md:text-2xl lg:text-3xl">
-              Secure Software Engineer
+          <div className="py-1 md:py-2">
+            <h2 className="pixel-title text-base leading-relaxed md:text-2xl lg:text-3xl">
+              muhmmad haseeb
             </h2>
-            <p className="mt-5 max-w-4xl text-base text-[var(--text-soft)] md:text-lg">
+            <p className="mt-4 max-w-4xl text-base text-[var(--text-soft)] md:text-lg">
               I design and build secure web applications, harden software delivery pipelines, and perform penetration testing to uncover exploitable risk before attackers do.
             </p>
-            <p className="mt-6 text-base md:text-lg">
+            <p className="mt-5 text-base md:text-lg">
               Core focus: <TypingText values={heroRoles} />
             </p>
           </div>
