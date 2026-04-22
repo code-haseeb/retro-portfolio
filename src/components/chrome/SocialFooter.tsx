@@ -10,7 +10,7 @@ export function SocialFooter() {
             className="focus-ring mono-inline border border-[var(--border)] px-3 py-2 text-[0.64rem] tracking-wider text-[var(--text)] hover:bg-[var(--accent-soft)]"
             href={social.href}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             {social.label}
           </a>

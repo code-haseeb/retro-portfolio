@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { SeoManager } from './components/seo/SeoManager.tsx'
 import { ContactPage } from './pages/ContactPage.tsx'
 import { ExperiencePage } from './pages/ExperiencePage.tsx'
 import { HomePage } from './pages/HomePage.tsx'
@@ -9,16 +10,19 @@ import { ProjectsPage } from './pages/ProjectsPage.tsx'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<IntroPage />} />
-      <Route path="/menu" element={<MenuPage />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/experience" element={<ExperiencePage />} />
-      <Route path="/projects" element={<ProjectsPage />} />
-      <Route path="/projects/:slug" element={<ProjectDetailPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+    <>
+      <SeoManager />
+      <Routes>
+        <Route path="/" element={<IntroPage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/experience" element={<ExperiencePage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
   )
 }
 

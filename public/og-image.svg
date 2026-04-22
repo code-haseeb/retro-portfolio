@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Muhammad Haseeb portfolio">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f0f0f"/>
+      <stop offset="100%" stop-color="#1f1f1f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="52" y="52" width="1096" height="526" fill="none" stroke="#fb7185" stroke-width="8"/>
+  <text x="90" y="250" fill="#ffffff" font-size="68" font-family="Verdana, Arial, sans-serif" font-weight="700">Muhammad Haseeb</text>
+  <text x="90" y="330" fill="#fb7185" font-size="38" font-family="Verdana, Arial, sans-serif">Secure Software Engineer</text>
+  <text x="90" y="390" fill="#d4d4d4" font-size="30" font-family="Verdana, Arial, sans-serif">Portfolio • Projects • Penetration Testing</text>
+</svg>

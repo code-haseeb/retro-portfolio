@@ -2,14 +2,15 @@ import type { ExperienceItem, ProjectItem, SocialLink } from './types'
 
 export const heroRoles = [
   'Software Engineer',
-  'Secure Software Engineer',
+  'Product Designer',
+  'Product Developer',
   'Penetration Tester',
 ] as const
 
 export const socials: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-  { label: 'Instagram', href: 'https://www.instagram.com/' },
+  { label: 'GitHub', href: 'https://github.com/code-haseeb' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/codehaseeb' },
+  { label: 'Instagram', href: 'https://www.instagram.com/code_haseeb' },
 ]
 
 export const experiences: ExperienceItem[] = [

@@ -69,12 +69,20 @@ Set values for:
 
 - `VITE_FORMSUBMIT_EMAIL`
 - `VITE_CONTACT_EMAIL` (optional fallback display)
+- `VITE_SITE_URL` (production canonical URL, e.g. `https://haseeb.codes`)
 
 FormSubmit setup:
 
 1. Set `VITE_FORMSUBMIT_EMAIL` to your real inbox address.
 2. Submit the contact form once.
 3. Confirm activation from the email sent by FormSubmit.
+
+## SEO
+
+- Route-aware metadata is generated at runtime for each page.
+- `robots.txt`, `sitemap.xml`, and `site.webmanifest` are included in `public/`.
+- Social preview image is available at `/og-image.svg`.
+- Set `VITE_SITE_URL` so canonical and Open Graph URLs point to your real domain.
 
 ### 3. Start development server
 
