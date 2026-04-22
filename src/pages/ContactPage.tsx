@@ -27,6 +27,8 @@ export function ContactPage() {
   const [form, setForm] = useState<FormState>(initialState)
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+  const formSubmitEmail = import.meta.env.VITE_FORMSUBMIT_EMAIL?.trim() || ''
+  const fallbackEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim() || 'you@example.com'
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((current) => ({ ...current, [key]: value }))
@@ -42,19 +44,36 @@ export function ContactPage() {
       return
     }
 
+    if (!formSubmitEmail) {
+      setStatus('error')
+      setMessage('FormSubmit is not configured. Add VITE_FORMSUBMIT_EMAIL in .env.')
+      return
+    }
+
     setStatus('sending')
     setMessage('')
 
     try {
-      const response = await fetch('/api/contact', {
+      const payload = new FormData()
+      payload.append('name', parsed.data.name)
+      payload.append('email', parsed.data.email)
+      payload.append('subject', parsed.data.subject)
+      payload.append('message', parsed.data.description)
+      payload.append('_subject', `Portfolio Contact: ${parsed.data.subject}`)
+      payload.append('_captcha', 'false')
+      payload.append('_template', 'table')
+
+      const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(formSubmitEmail)}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(parsed.data),
+        headers: {
+          Accept: 'application/json',
+        },
+        body: payload,
       })
 
+      const result = (await response.json()) as { success?: string; message?: string }
       if (!response.ok) {
-        const error = (await response.json()) as { message?: string }
-        throw new Error(error.message ?? 'Unable to submit right now.')
+        throw new Error(result.message || 'Unable to send message right now.')
       }
 
       setStatus('success')
@@ -62,7 +81,7 @@ export function ContactPage() {
       setForm(initialState)
     } catch (error) {
       setStatus('error')
-      setMessage(error instanceof Error ? error.message : 'Submission failed.')
+      setMessage(error instanceof Error ? error.message : 'Unable to send message right now.')
     }
   }
 
@@ -139,6 +158,10 @@ export function ContactPage() {
           <PixelButton type="submit" disabled={status === 'sending'}>
             {status === 'sending' ? 'Sending...' : 'Send Message'}
           </PixelButton>
+
+          <p className="text-sm text-[var(--text-soft)]">
+            Recipient: <a className="underline" href={`mailto:${formSubmitEmail || fallbackEmail}`}>{formSubmitEmail || fallbackEmail}</a>
+          </p>
 
           {message ? (
             <p

@@ -37,7 +37,7 @@ export function MenuPage() {
   return (
     <AppShell
       title="Main Menu"
-      subtitle="Software engineering portfolio with a secure development and penetration testing focus."
+      subtitle="Use arrow keys and Enter, or click an option to continue."
       showGoTop={false}
     >
       <div className="retro-screen mx-auto flex w-full max-w-2xl flex-col gap-3 p-6">

@@ -12,7 +12,7 @@ This project presents Muhammad Haseeb's profile across software engineering, sec
 - Project filtering by skills and related-project suggestions
 - Theme toggle (light/dark) with consistent design tokens
 - Reduced-motion support and keyboard-friendly interactions
-- Serverless contact endpoint with validation and abuse protection
+- Frontend-only contact flow powered by EmailJS
 
 ## Tech Stack
 
@@ -21,19 +21,13 @@ This project presents Muhammad Haseeb's profile across software engineering, sec
 - Vite 8
 - Tailwind CSS 4
 - React Router 7
-- Zod (client and server payload validation)
-- Resend (serverless email delivery)
+- Zod (client-side payload validation)
+- EmailJS Browser SDK
 
 ## Project Structure
 
 ```text
 .
-|- api/
-|  |- _lib/
-|  |  |- rateLimit.ts
-|  |  |- security.ts
-|  |  |- validation.ts
-|  |- contact.ts
 |- public/
 |- src/
 |  |- components/
@@ -74,10 +68,18 @@ cp .env.example .env
 
 Set values for:
 
-- `RESEND_API_KEY`
-- `CONTACT_FROM_EMAIL`
-- `CONTACT_TO_EMAIL`
-- `ALLOWED_ORIGINS`
+- `VITE_CONTACT_EMAIL`
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+
+Create an EmailJS template using these variable names:
+
+- `to_email`
+- `user_name`
+- `user_email`
+- `subject`
+- `message`
 
 ### 3. Start development server
 
@@ -92,21 +94,9 @@ npm run lint
 npm run build
 ```
 
-## Security Notes
-
-- Secrets are loaded from environment variables only.
-- Contact payloads are validated and sanitized server-side.
-- Request size checks and per-IP rate limiting are enforced.
-- Honeypot field and origin checks are applied on contact requests.
-- Security headers are configured in `vercel.json` and API responses.
-
 ## Deployment
 
-This repository is ready for Vercel deployment:
-
-1. Import repository in Vercel
-2. Add environment variables from `.env.example`
-3. Deploy
+This repository is a static frontend app and can be deployed on any static host.
 
 ## License
 

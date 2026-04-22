@@ -14,16 +14,16 @@ export const socials: SocialLink[] = [
 
 export const experiences: ExperienceItem[] = [
   {
-    id: 'exp-1',
-    role: 'UI/UX Designer',
-    company: 'Upwork',
-    period: '2021 - 2023',
+    id: 'exp-2',
+    role: 'Penetration Tester',
+    company: 'Independent',
+    period: '2025 - Present',
     summary:
-      'Designed user-centric interfaces and scalable design systems for web products across startup and client projects.',
+      'Performing web and API penetration tests to identify exploit paths and deliver practical remediation guidance.',
     highlights: [
-      'Created wireframes, high-fidelity prototypes, and interactive flows in Figma.',
-      'Improved onboarding and checkout usability using user feedback loops.',
-      'Maintained reusable UI components and visual consistency across pages.',
+      'Executed OWASP-aligned assessments for authentication, access control, and input handling flaws.',
+      'Produced structured reports with severity scoring and proof-of-concept evidence.',
+      'Retested remediations and worked with developers to validate secure fixes.',
     ],
   },
   {
@@ -40,16 +40,16 @@ export const experiences: ExperienceItem[] = [
     ],
   },
   {
-    id: 'exp-2',
-    role: 'Penetration Tester',
-    company: 'Independent',
-    period: '2025 - Present',
+    id: 'exp-1',
+    role: 'UI/UX Designer',
+    company: 'Upwork',
+    period: '2021 - 2023',
     summary:
-      'Performing web and API penetration tests to identify exploit paths and deliver practical remediation guidance.',
+      'Designed user-centric interfaces and scalable design systems for web products across startup and client projects.',
     highlights: [
-      'Executed OWASP-aligned assessments for authentication, access control, and input handling flaws.',
-      'Produced structured reports with severity scoring and proof-of-concept evidence.',
-      'Retested remediations and worked with developers to validate secure fixes.',
+      'Created wireframes, high-fidelity prototypes, and interactive flows in Figma.',
+      'Improved onboarding and checkout usability using user feedback loops.',
+      'Maintained reusable UI components and visual consistency across pages.',
     ],
   },
 ]
