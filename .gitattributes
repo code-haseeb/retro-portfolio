@@ -1,0 +1,16 @@
+# Enforce consistent, secure-by-default line endings across all text files
+* text=auto eol=lf
+
+# Keep Windows command scripts compatible where required
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets must never be normalized
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.svg text eol=lf
+*.ico binary
+*.pdf binary
