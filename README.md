@@ -12,7 +12,7 @@ This project presents Muhammad Haseeb's profile across software engineering, sec
 - Project filtering by skills and related-project suggestions
 - Theme toggle (light/dark) with consistent design tokens
 - Reduced-motion support and keyboard-friendly interactions
-- Frontend-only contact flow powered by EmailJS
+- Frontend-only contact flow powered by FormSubmit
 
 ## Tech Stack
 
@@ -22,7 +22,6 @@ This project presents Muhammad Haseeb's profile across software engineering, sec
 - Tailwind CSS 4
 - React Router 7
 - Zod (client-side payload validation)
-- EmailJS Browser SDK
 
 ## Project Structure
 
@@ -68,18 +67,14 @@ cp .env.example .env
 
 Set values for:
 
-- `VITE_CONTACT_EMAIL`
-- `VITE_EMAILJS_SERVICE_ID`
-- `VITE_EMAILJS_TEMPLATE_ID`
-- `VITE_EMAILJS_PUBLIC_KEY`
+- `VITE_FORMSUBMIT_EMAIL`
+- `VITE_CONTACT_EMAIL` (optional fallback display)
 
-Create an EmailJS template using these variable names:
+FormSubmit setup:
 
-- `to_email`
-- `user_name`
-- `user_email`
-- `subject`
-- `message`
+1. Set `VITE_FORMSUBMIT_EMAIL` to your real inbox address.
+2. Submit the contact form once.
+3. Confirm activation from the email sent by FormSubmit.
 
 ### 3. Start development server
 
